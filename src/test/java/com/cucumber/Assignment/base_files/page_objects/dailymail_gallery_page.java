@@ -17,13 +17,13 @@ public class dailymail_gallery_page extends ParentPage {
 
     WebDriver driver;
 
-    By gallery_button = By.xpath("//div[contains(@class, 'mobile-gallery-icon')]");
+    By gallery_button = By.xpath("//button[contains(@class, 'openGalleryButton-2CswR')]");
     By gallery_count = By.xpath("//div[contains(@class, 'mobile-gallery-icon')]/../span");
     By view_gallery = By.xpath("//button[contains(@class, 'openGalleryButton-2CswR')]/div[contains(@class, 'viewGalleryText-2XMcO')]");
-    By gallery_fullscreen = By.xpath("//div[@id='mobileGalleryModal']");
-    By previous_button = By.xpath("//div[@id='mobileGalleryModal']//div[contains(@class, 'navigation-arrow') and contains(@class, 'left')]");
-    By next_button = By.xpath("//div[@id='mobileGalleryModal']//div[contains(@class, 'navigation-arrow') and contains(@class, 'right')]");
-    By image_counter = By.xpath("//div[@id='mobileGalleryModal']//div[contains(@class, 'title')]");
+    By gallery_fullscreen = By.xpath("//div[contains(@class, 'galleryWrapper-3NlQG')]");
+    By previous_button = By.xpath("//div[contains(@class, 'galleryWrapper-3NlQG')]//button[@aria-label='Previous']");
+    By next_button = By.xpath("//div[contains(@class, 'galleryWrapper-3NlQG')]//button[@aria-label='Next']");
+    By image_counter = By.xpath("//div[contains(@class, 'galleryWrapper-3NlQG')]//div[contains(@class, 'counter-1RYOX')]");
     By image_share = By.xpath("//div[contains(@class, 'container-3zJLP')]");
     By embeded_video = By.xpath("//div[contains(@class, 'vjs-video-container')]");
     By video_fullscreen_collapse = By.xpath("//div[contains(@class, 'vjs-video-container')]//div[contains(@class, 'vjs-fullscreen-control')]//span[text()='Non-Fullscreen']");
@@ -75,7 +75,7 @@ public class dailymail_gallery_page extends ParentPage {
     public void click_video_fullscreen(){
         wait_Specific_Seconds(5000);
         List<WebElement> lisElement = get_Element_List(embeded_video);
-
+        driver.manage().window().maximize();
         if (lisElement.size() > 0) {
             lisElement.get(0).findElement(By.xpath(".//div[contains(@class, 'vjs-fullscreen-control') and @role='button']")).click();
             wait_Specific_Seconds(5000);
@@ -127,7 +127,7 @@ public class dailymail_gallery_page extends ParentPage {
         List<WebElement> lisElement = get_Element_List(gallery_button);
 
         if (lisElement.size() > 0) {
-            String count = lisElement.get(0).findElement(By.xpath("../span")).getText();
+            String count = lisElement.get(0).findElement(By.xpath(".//div[contains(@class, 'imageCount-2Mnr9')]")).getText();
             count = count.replace("+", "");
             int num = 0;
             try {

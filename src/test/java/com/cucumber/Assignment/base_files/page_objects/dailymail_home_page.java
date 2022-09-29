@@ -22,6 +22,7 @@ public class dailymail_home_page extends ParentPage {
     }
 
     public void accept_cookie(){
+        wait_Specific_Seconds(5000);
         if(return_element_displayed_value(accpet_cookie)){
             click(accpet_cookie);
         }

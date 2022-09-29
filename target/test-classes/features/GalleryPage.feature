@@ -15,7 +15,7 @@ Feature: To verify functionality on Gallery Page
     When I click on facebook share icon
     Then Facebook modal dialog should open
 
-  @runSmoke
+  @runSmokee
   Scenario: To Verify video fullscreen
     Given I am on gallery page
     When I click on full screen button of first video

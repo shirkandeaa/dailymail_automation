@@ -12,7 +12,7 @@ import io.cucumber.java.en.When;
 public class homepage extends ParentScenario {
 
     @Given("I am on dailymail website home page")
-    public void navigate_to_homepage(){
+    public void navigate_to_homepage() throws InterruptedException {
         String url = "https://www.dailymail.co.uk/home/index.html";
         launch_URL(url);
         objHomePage.accept_cookie();
